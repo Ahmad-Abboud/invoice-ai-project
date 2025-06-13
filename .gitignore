@@ -1,0 +1,50 @@
+# ---- Python ----
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+pip-log.txt
+
+# ---- Notebooks ----
+.ipynb_checkpoints/
+
+# ---- Models ----
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.pb
+*.tflite
+*.onnx
+*.joblib
+*.pkl
+
+# ---- Data ----
+/data/*
+!/data/README.md
+
+# ---- IDE Config ----
+.vscode/
+.idea/
+
+# ---- Logs and Test Outputs ----
+*.log
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# ---- Frontend ----
+node_modules/
+dist/
+build/
+.cache/
+*.log
+*.tmp
+
+
