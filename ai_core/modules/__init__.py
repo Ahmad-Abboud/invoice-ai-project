@@ -1,2 +1,3 @@
 from .preprocessing.preprocess import full_preprocessing_pipeline
 from .preprocessing.preprocess import preprocess_invoice
+from .ocr.ocr_engine import extract_text_with_easyocr
