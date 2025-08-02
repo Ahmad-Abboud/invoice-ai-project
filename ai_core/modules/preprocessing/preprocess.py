@@ -56,4 +56,31 @@ def full_preprocessing_pipeline(image_path, return_all_steps=False, save_steps=F
             "morphed": morphed
         }
     else:
-        return morphed
+        return thresholded
+
+
+def preprocess_invoice(image_path):
+    original_image = cv2.imread(image_path)
+
+    # 1. Convert to grayscale
+    gray = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
+
+    # 2. Apply a light blur to reduce noise before thresholding
+    # This can help in getting a more uniform background
+    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+
+    # 3. Apply adaptive thresholding with carefully chosen parameters
+    # The block_size of 21 and C of 1 are good starting points for many documents
+    thresholded = cv2.adaptiveThreshold(blurred, 255,
+                                        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                        cv2.THRESH_BINARY, 21, 1)
+
+    # 4. Optional: Morphological Operations
+    # You can use a dilation to thicken text if it's too thin
+    # or an opening operation to remove small noise artifacts.
+    # For this image, let's stick to the thresholded image first.
+    # kernel = np.ones((1, 1), np.uint8)
+    # final_image = cv2.dilate(thresholded, kernel, iterations=1)
+
+    return blurred
+
