@@ -25,7 +25,7 @@ pip-log.txt
 *.pkl
 
 # ---- Data ----
-/data/*
+ai_core/data/*
 !/data/README.md
 
 # ---- IDE Config ----
